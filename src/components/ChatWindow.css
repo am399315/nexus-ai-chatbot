@@ -1,0 +1,15 @@
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 0 16px;
+  position: relative;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 20px;
+  max-width: 780px;
+  margin: 0 auto;
+}
