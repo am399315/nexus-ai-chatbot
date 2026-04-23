@@ -41,7 +41,7 @@ Aplicación web de chatbot con inteligencia artificial real, construida con **Re
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/Andres.39/nexus-ai-chatbot.git
+git clone https://github.com/am399315/nexus-ai-chatbot.git
 cd nexus-ai-chatbot
 ```
 
