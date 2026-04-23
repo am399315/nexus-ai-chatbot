@@ -9,7 +9,9 @@ function sanitizeInput(text) {
 export async function streamAIResponse(messages, onChunk, signal, { tone, temperature, onMeta } = {}) {
   const sanitized = messages.map(m => ({ ...m, text: sanitizeInput(m.text) }))
 
-  const response = await fetch('/api/chat', {
+  const API_BASE = import.meta.env.VITE_API_URL ?? ''
+
+  const response = await fetch(`${API_BASE}/api/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ messages: sanitized, tone, temperature }),
