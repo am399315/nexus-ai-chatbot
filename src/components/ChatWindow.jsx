@@ -19,6 +19,20 @@ export default function ChatWindow({
   return (
     <main className="chat-window" aria-live="polite" aria-label="Conversación">
       <div className="messages-list">
+        {messages.length === 1 && (
+          <div className="chat-welcome" aria-hidden="true">
+            <div className="cw-glow" />
+            <div className="cw-logo"><span>N</span></div>
+            <h2 className="cw-title">Hola, soy <span>NexusAI</span></h2>
+            <p className="cw-sub">Powered by Gemini AI · v2.0</p>
+            <div className="cw-chips">
+              <span className="cw-chip">⚡ Respuestas en tiempo real</span>
+              <span className="cw-chip">💬 Múltiples tonos</span>
+              <span className="cw-chip">📚 Historial guardado</span>
+              <span className="cw-chip">🎨 Código con colores</span>
+            </div>
+          </div>
+        )}
         {messages.map((msg, idx) => {
           const isLastBot = !msg.isStreaming && msg.role === 'bot' && idx === lastBotIdx
           const matches = hasSearch

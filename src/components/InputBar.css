@@ -13,11 +13,20 @@
   height: 1px;
   background: linear-gradient(
     90deg,
-    transparent,
-    rgba(147, 51, 234, 0.4),
-    rgba(14, 165, 233, 0.3),
-    transparent
+    transparent 0%,
+    rgba(147, 51, 234, 0.6) 20%,
+    rgba(99, 102, 241, 0.5) 40%,
+    rgba(14, 165, 233, 0.55) 60%,
+    rgba(236, 72, 153, 0.4) 80%,
+    transparent 100%
   );
+  background-size: 200% 100%;
+  animation: inputTopShimmer 8s linear infinite;
+}
+
+@keyframes inputTopShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .suggestions {
@@ -48,14 +57,33 @@
   overflow: hidden;
 }
 
+.suggestion-chip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; bottom: 0;
+  width: 60%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+
+.suggestion-chip:hover:not(:disabled)::before {
+  animation: chipShimmer 0.55s ease forwards;
+}
+
+@keyframes chipShimmer {
+  from { left: -100%; }
+  to   { left: 160%; }
+}
+
 .suggestion-chip:hover:not(:disabled) {
-  border-color: rgba(147, 51, 234, 0.55);
+  border-color: rgba(147, 51, 234, 0.6);
   color: #c4b5fd;
-  background: rgba(147, 51, 234, 0.1);
+  background: rgba(147, 51, 234, 0.11);
   box-shadow:
-    0 0 14px rgba(147, 51, 234, 0.18),
-    inset 0 1px 0 rgba(255,255,255,0.07);
-  transform: translateY(-1px);
+    0 0 18px rgba(147, 51, 234, 0.2),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  transform: translateY(-2px);
 }
 
 .suggestion-chip:active:not(:disabled) { transform: translateY(0) scale(0.97); }
@@ -82,12 +110,27 @@
 }
 
 .input-box:focus-within {
-  border-color: rgba(147, 51, 234, 0.6);
-  background: rgba(255, 255, 255, 0.055);
-  box-shadow:
-    0 0 0 3px rgba(147, 51, 234, 0.12),
-    0 0 32px rgba(147, 51, 234, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-color: rgba(147, 51, 234, 0.65);
+  background: rgba(255, 255, 255, 0.058);
+  animation: inputFocusBreath 3s ease-in-out infinite alternate;
+}
+
+@keyframes inputFocusBreath {
+  from {
+    box-shadow:
+      0 0 0 1px rgba(147, 51, 234, 0.35),
+      0 0 0 4px rgba(147, 51, 234, 0.07),
+      0 0 32px rgba(147, 51, 234, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  to {
+    box-shadow:
+      0 0 0 1px rgba(147, 51, 234, 0.7),
+      0 0 0 5px rgba(147, 51, 234, 0.11),
+      0 0 52px rgba(147, 51, 234, 0.16),
+      0 0 90px rgba(14, 165, 233, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  }
 }
 
 .input-box.disabled { opacity: 0.45; }

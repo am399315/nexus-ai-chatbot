@@ -6,6 +6,9 @@
   padding: 5px 20px;
   position: relative;
   z-index: 1;
+  background: rgba(255, 255, 255, 0.012);
+  border-top: 1px solid rgba(255, 255, 255, 0.032);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.032);
 }
 
 .stat-item {
@@ -18,7 +21,7 @@
 }
 
 .stat-sep {
-  color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.1);
   font-size: 0.75rem;
 }
 

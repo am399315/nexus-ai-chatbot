@@ -114,11 +114,18 @@
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: -0.03em;
-  background: linear-gradient(120deg, #f1f5f9 0%, #c4b5fd 45%, #7dd3fc 100%);
+  background: linear-gradient(120deg, #f1f5f9 0%, #c4b5fd 28%, #f1f5f9 48%, #7dd3fc 68%, #f1f5f9 100%);
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.2;
+  animation: logoNameShimmer 6s ease-in-out infinite;
+}
+
+@keyframes logoNameShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
 }
 
 .logo-tagline {
@@ -293,30 +300,39 @@
 }
 
 .orb-1 {
-  width: 720px;
-  height: 720px;
-  background: radial-gradient(circle at 40% 40%, rgba(147, 51, 234, 0.24), transparent 70%);
-  top: -340px;
-  left: -220px;
+  width: 760px;
+  height: 760px;
+  background: radial-gradient(circle at 40% 40%, rgba(147, 51, 234, 0.3), transparent 70%);
+  top: -360px;
+  left: -240px;
   animation: drift1 30s ease-in-out infinite alternate;
 }
 
 .orb-2 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle at 55% 55%, rgba(14, 165, 233, 0.19), transparent 70%);
-  bottom: -280px;
-  right: -190px;
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(circle at 55% 55%, rgba(14, 165, 233, 0.23), transparent 70%);
+  bottom: -300px;
+  right: -200px;
   animation: drift2 36s ease-in-out infinite alternate;
 }
 
 .orb-3 {
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.12), transparent 70%);
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.16), transparent 70%);
   top: 38%;
   left: 42%;
   animation: drift1 44s ease-in-out infinite alternate-reverse;
+}
+
+.orb-4 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.14), transparent 70%);
+  top: 28%;
+  right: -110px;
+  animation: drift2 38s ease-in-out infinite alternate-reverse;
 }
 
 @keyframes drift1 {

@@ -84,7 +84,13 @@
 }
 
 .bubble strong { font-weight: 600; color: #c4b5fd; }
-.bubble em     { color: #7dd3fc; font-style: italic; }
+.bubble-bot strong {
+  background: linear-gradient(120deg, #c4b5fd, #7dd3fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.bubble em { color: #7dd3fc; font-style: italic; }
 
 /* ── User bubble ── */
 .bubble-user {
@@ -221,7 +227,10 @@
   font-weight: 700;
   font-size: 0.78rem;
   flex-shrink: 0;
-  box-shadow: 0 0 0 2.5px rgba(147, 51, 234, 0.32), 0 4px 12px rgba(147, 51, 234, 0.25);
+  box-shadow:
+    0 0 0 2px rgba(147, 51, 234, 0.55),
+    0 0 0 4px rgba(147, 51, 234, 0.1),
+    0 4px 18px rgba(147, 51, 234, 0.38);
 }
 
 .bot-avatar.small {
@@ -234,13 +243,14 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255,255,255,0.11), rgba(255,255,255,0.04));
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   color: var(--text-secondary);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
 /* ── Streaming cursor ── */
